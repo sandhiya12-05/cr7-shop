@@ -1,0 +1,161 @@
+<!-- product.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Product Details - CR7</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <header>
+        <div class="logo">CR7 Collections</div>
+        <nav>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="tshirt.html">T-Shirts</a></li>
+            <li><a href="hoodie.html">Hoodies</a></li>
+            <li><a href="sports tshirt.html">Sports TShirts</a></li>
+            <li><a href="cart.html">Cart</a></li>
+            <li><a href="wishlist.html">Wishlist</a></li>
+          </ul>
+        </nav>
+      </header>
+  <section id="product-details" style="padding: 40px;">
+    <!-- Product details will be loaded here via JS -->
+  </section>
+
+  <footer>
+    <p>&copy; 2025 CR7 Collections</p>
+  </footer>
+
+  <script>
+    const products = [
+      {
+        id: 1,
+        name: "Black",
+        price: "₹499",
+        image: "images/tshirt1.jpg",
+        colors: ["Black"],
+        sizes: ["S", "M", "L", "XL"],
+        fabric: "100% Cotton",
+        description: "A must-have black t-shirt for every wardrobe. Comfortable and stylish."
+      },
+      {
+        id: 2,
+        name: "white",
+        price: "₹499",
+        image: "images/tshirt2.jpg",
+        colors: ["white"],
+        sizes: ["S", "M", "L", "XL"],
+        fabric: "100% Cotton",
+        description: "A must-have black t-shirt for every wardrobe. Comfortable and stylish."
+      },
+      {
+        id: 3,
+        name: "red",
+        price: "₹499",
+        image: "images/tshirt3.jpg",
+        colors: ["red"],
+        sizes: ["S", "M", "L", "XL"],
+        fabric: "100% Cotton",
+        description: "A must-have red t-shirt for every wardrobe. Comfortable and stylish."
+      },
+      {
+        id: 4,
+        name: "blue",
+        price: "₹499",
+        image: "images/tshirt4.jpg",
+        colors: ["blue"],
+        sizes: ["S", "M", "L", "XL"],
+        fabric: "100% Cotton",
+        description: "A must-have blue t-shirt for every wardrobe. Comfortable and stylish."
+      },
+      {
+        id: 5,
+        name: "babypink",
+        price: "₹499",
+        image: "images/tshirt5.jpg",
+        colors: ["baby pink"],
+        sizes: ["S", "M", "L", "XL"],
+        fabric: "100% Cotton",
+        description: "A must-have babypink t-shirt for every wardrobe. Comfortable and stylish."
+      },
+      {
+        id: 6,
+        name: "gray",
+        price: "₹499",
+        image: "images/tshirt6.jpg",
+        colors: ["gray"],
+        sizes: ["S", "M", "L", "XL"],
+        fabric: "100% Cotton",
+        description: "A must-have gray t-shirt for every wardrobe. Comfortable and stylish."
+      },
+      {
+        id: 7,
+        name: "maroon",
+        price: "₹499",
+        image: "images/tshirt7.jpg",
+        colors: ["maroon"],
+        sizes: ["S", "M", "L", "XL"],
+        fabric: "100% Cotton",
+        description: "A must-have maroon t-shirt for every wardrobe. Comfortable and stylish."
+      },
+      {
+        id: 8,
+        name: "mint",
+        price: "₹499",
+        image: "images/tshirt8.jpg",
+        colors: ["mint"],
+        sizes: ["S", "M", "L", "XL"],
+        fabric: "100% Cotton",
+        description: "A must-have mint t-shirt for every wardrobe. Comfortable and stylish."
+      },
+      {
+        id: 9,
+        name: "alive green",
+        price: "₹499",
+        image: "images/tshirt9.jpg",
+        colors: ["alive green"],
+        sizes: ["S", "M", "L", "XL"],
+        fabric: "100% Cotton",
+        description: "A must-have alive green t-shirt for every wardrobe. Comfortable and stylish."
+      },
+      {
+        id: 10,
+        name: "yellow",
+        price: "₹499",
+        image: "images/tshirt10.jpg",
+        colors: ["yellow"],
+        sizes: ["S", "M", "L", "XL"],
+        fabric: "100% Cotton",
+        description: "A must-have yellow t-shirt for every wardrobe. Comfortable and stylish."
+      },
+      
+    ];
+
+    const params = new URLSearchParams(window.location.search);
+    const id = parseInt(params.get("id"));
+    const product = products.find(p => p.id === id);
+
+    if (product) {
+      document.getElementById("product-details").innerHTML = `
+        <div style="display:flex; gap: 40px; flex-wrap:wrap;">
+          <img src="${product.image}" alt="${product.name}" style="width: 300px; border-radius:10px;" />
+          <div>
+            <h2>${product.name}</h2>
+            <p style="font-size: 1.2rem;">${product.price}</p>
+            <p><strong>Fabric:</strong> ${product.fabric}</p>
+            <p><strong>Color:</strong> ${product.colors.join(", ")}</p>
+            <p><strong>Sizes:</strong> ${product.sizes.join(", ")}</p>
+            <p>${product.description}</p>
+            <button style="margin-top: 15px; padding: 10px 20px; background: black; color: white; border: none; border-radius: 8px;">Add to Cart</button>
+          </div>
+        </div>
+      `;
+    } else {
+      document.getElementById("product-details").innerHTML = `<p>Product not found.</p>`;
+    }
+  </script>
+</body>
+</html>

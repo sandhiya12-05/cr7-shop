@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Cart - CR7 Collections</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <div class="logo">CR7 Collections</div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="tshirt.html">T-Shirts</a></li>
+        <li><a href="hoodie.html">Hoodies</a></li>
+        <li><a href="sports tshirt.html">Sports TShirts</a></li>
+        <li><a href="cart.html">Cart</a></li>
+        <li><a href="wishlist.html">Wishlist</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="cart">
+    <h2 style="text-align:center; margin: 30px 0;">Your Cart</h2>
+    <div id="cart-items" class="products"></div>
+  </section>
+  
+  <script>
+    const cartItems = JSON.parse(localStorage.getItem("cart")) || [];
+  
+    const cartContainer = document.getElementById("cart-items");
+  
+    if (cartItems.length === 0) {
+      cartContainer.innerHTML = "<p style='text-align:center;'>Cart is empty.</p>";
+    } else {
+      cartItems.forEach((item) => {
+        const productHTML = `
+          <div class="product-card">
+            <img src="${item.image}" alt="${item.name}" />
+            <h3>${item.name}</h3>
+            <p>${item.price}</p>
+          </div>
+        `;
+        cartContainer.innerHTML += productHTML;
+      });
+    }
+  </script>
+  
+
+  <footer>
+    <p>&copy; 2025 CR7 Collections. All rights reserved.</p>
+  </footer>
+</body>
+</html>
